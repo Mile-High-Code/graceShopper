@@ -1,9 +1,6 @@
 const usersRouter = require("express").Router();
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
 
 const prisma = require("../db/prisma");
-const { users } = require("../db/prisma");
 
 usersRouter.get("/", async (req, res, next) => {
   try {
@@ -62,7 +59,10 @@ usersRouter.get("/:id", async (req, res, next) => {
   }
 });
 
+// this needs to be protected by authRequired
 usersRouter.patch("/:id", async (req, res, next) => {
+  // pull out what you need const { thing } = req.body
+  // then pass it into the prisma query
   try {
     const updatedUser = await prisma.users.update({
       where: {

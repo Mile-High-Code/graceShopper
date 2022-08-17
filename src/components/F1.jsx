@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { fetchItemsByFloor } from "../api/items";
+import { useParams } from "react-router-dom";
 
 export default function F1() {
+  const { id } = useParams();
+
   const [floorItems, setFloorItems] = useState([]);
   useEffect(() => {
     const getFloorItems = async () => {
-      const myFloorItems = await fetchItemsByFloor(1);
+      const myFloorItems = await fetchItemsByFloor(+id);
       setFloorItems(myFloorItems);
     };
     getFloorItems();
-  }, []);
+  }, [id]);
 
   return (
     <>

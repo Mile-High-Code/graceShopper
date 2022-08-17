@@ -44,7 +44,13 @@ export async function logoutUser() {
   }
 }
 
-export async function registerUser(username, password, name, email, address) {
+export async function registerUser(username, password, name, address) {
+  // const { data } = await axios.post("/api/auth/register", {
+  //   username: username,
+  //   password: password,
+  //   name: name,
+  //   address: address,
+  // });
   const response = await fetch(`/api/auth/register`, {
     method: "POST",
     headers: {
