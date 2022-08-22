@@ -5,7 +5,7 @@ const prisma = require("./prisma");
 const fetchAndSeedItems = async () => {
   console.log("...fetching all items");
   const { data } = await axios.get(
-    `https://pokeapi.co/api/v2/item?offset=0&limit=100`
+    `https://pokeapi.co/api/v2/item?offset=0&limit=500`
   );
   //   console.log(data.results);
   console.log("...Fetching single items");
